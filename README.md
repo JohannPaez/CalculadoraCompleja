@@ -40,3 +40,7 @@ Si quieres saber como funciona el programa, tienes que seguir los siguientes pas
 
 ## Autor
 Johann Sebastian Páez Campos - Trabajo Programación
+
+## Licencia
+Este programa es de uso libre, puede ser usado por cualquier persona.
+
