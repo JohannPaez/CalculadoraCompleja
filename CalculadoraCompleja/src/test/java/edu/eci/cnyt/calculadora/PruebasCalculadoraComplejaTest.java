@@ -9,7 +9,7 @@ import org.junit.Test;
 
 
 
-public class PruebasCalculadoraCompleja 
+public class PruebasCalculadoraComplejaTest 
 {
     
 	
