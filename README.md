@@ -50,6 +50,16 @@ Para poder ejecutar sus pruebas siga los siguientes pasos:
 2. Elija la prueba que desea y cambie el resultado por el esperado.
 3. Corra las pruebas y verifique que el resultado esperado es igual al valor dado por el programa.
 
+## Ejemplos de uso
+Habrá el proyecto en el editor de su preferencia:
+1. Busque el directorio src\main\java\edu\eci\cnyt\calculadora.
+2. Habrá la clase CalculadoraCompleja que es la clase principal.
+3. En el constructor cree un nuevo número complejo(parte real, parte imaginaria).
+4. Complejo n = new Complejo(3,4);
+5. Complejo n2 = new Complejo(3,4);
+6. Ejecute las operaciones deseadas
+7. Complejo resultado = sumar(n, n2);
+
 ## Construido 
 [Eclipse](https://www.eclipse.org/) Editor de JAVA donde se puede compilar el proyecto. 
 
