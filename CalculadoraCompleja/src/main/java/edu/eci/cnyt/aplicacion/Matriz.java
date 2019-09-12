@@ -1,8 +1,6 @@
-package aplicacion;
+package edu.eci.cnyt.aplicacion;
 
-import static org.junit.Assert.assertEquals;
 
-import java.math.BigDecimal;
 
 public class Matriz {
 	private Complejo matriz[][];

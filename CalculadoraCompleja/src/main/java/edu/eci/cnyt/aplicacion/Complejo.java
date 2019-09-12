@@ -1,4 +1,4 @@
-package aplicacion;
+package edu.eci.cnyt.aplicacion;
 
 public class Complejo {
 	private double real;

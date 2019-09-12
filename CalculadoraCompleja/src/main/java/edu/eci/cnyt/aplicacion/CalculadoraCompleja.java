@@ -1,4 +1,4 @@
-package aplicacion;
+package edu.eci.cnyt.aplicacion;
 
 import java.util.*;
 

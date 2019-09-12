@@ -1,7 +1,7 @@
-package pruebas;
-import aplicacion.*;
-import static org.junit.Assert.*;
+package edu.eci.cnyt.aplicacion;
+
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class PruebasCalculadoraCompleja {
 	
