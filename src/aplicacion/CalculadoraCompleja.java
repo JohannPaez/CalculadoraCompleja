@@ -3,14 +3,6 @@ package aplicacion;
 import java.util.*;
 
 public class CalculadoraCompleja {
-	
-	private Complejo A[][] = new Complejo[3][4]; // Matriz A
-	//private ArrayList<ArrayList<Complejo>> MatrizB;
-	private Complejo B[][] = new Complejo[3][4]; // Matriz B
-	
-	
-	
-	
 	/**
 	 * Constructor de la calculadora que muestra solo algunos datos deseados
 	 * @param pruebas Dice si se muestran o no los datos en caso de que sea prueba
@@ -18,8 +10,8 @@ public class CalculadoraCompleja {
 	public CalculadoraCompleja(boolean pruebas) {
 		if (pruebas) return;
 		Complejo resultado;
-		Complejo c1 =  new Complejo(0, 1);
-		Complejo c2=  new Complejo(0, -1);
+		Complejo c1 =  new Complejo(4, 3);
+		Complejo c2=  new Complejo(-4, -5);
 		resultado = sumar(c1, c2);
 		System.out.println("El resultado de sumar c1 con c2 es: " + resultado.getReal() + " " + resultado.getImaginario() + "i");
 		resultado = restar(c1, c2);
@@ -32,72 +24,38 @@ public class CalculadoraCompleja {
 		System.out.println("El resultado del modulo de c1 es: " + resultadoModulo);
 		resultado = conjugado(c2);
 		System.out.println("El conjugado de c2 es: " + resultado.getReal() + " " + resultado.getImaginario() + "i");
-		prepareMatrices();
-		try {
-			sumarMatrices(A, B);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	
-	public void prepareMatrices() {
-		for (int i = 0; i < A.length; i++) {
-			for (int j = 0; j < A[i].length; j++) {
-				double real = Math.floor(Math.random()*(100 - (-100) + 1) - 100);
-				double imaginario = Math.floor(Math.random()*(100 - (-100) + 1) - 100);
-				A[i][j] = new Complejo(real, imaginario);				
-			}
-		}
+		/*Complejo[][] C = new Complejo[][] {{new Complejo(1,0),new Complejo(2,0),new Complejo(3,0)}, {new Complejo(4,0),new Complejo(5,0),new Complejo(6,0)}};
+		Complejo[][] D = new Complejo[][] {{new Complejo(1,0),new Complejo(2,0)},{new Complejo(3,0), new Complejo(4,0)},{new Complejo(5,0),new Complejo(6,0)}};
+		Complejo[][] E = new Complejo[][] {{new Complejo(1,0), new Complejo(1,0)}, {new Complejo(0,0), new Complejo(1,0)}};
 		
-		for (int i = 0; i < B.length; i++) {
-			for (int j = 0; j < B[i].length; j++) {
-				double real = Math.floor(Math.random()*(100 - (-100) + 1) - 100);
-				double imaginario = Math.floor(Math.random()*(100 - (-100) + 1) - 100);
-				B[i][j] = new Complejo(real, imaginario);				
-			}
-		}
+		boolean isTrue = new Matriz(E).isUnitaria();
+		System.out.println(isTrue);
+		isTrue = new Matriz(E).isHermitian();
+		System.out.println(isTrue);
 		
-		System.out.println("Matriz A");
+		Matriz A = new Matriz(C);
+		Matriz B = new Matriz(D);
+		Matriz z = A.multiplicar(B);
+		z.imprimir();
 		
-		for (int i = 0; i < A.length; i++) {
-			for (int j = 0; j < A[i].length; j++) {
-				System.out.print("("+ A[i][j].getReal() + ", " + A[i][j].getImaginario() + ")" + " ");
-			}
-			System.out.println();
-		}
+		Matriz prueba = new Matriz(E);
 		
-		System.out.println("Matriz B");
-		for (int i = 0; i < B.length; i++) {
-			for (int j = 0; j < B[i].length; j++) {
-				System.out.print("("+ B[i][j].getReal() + ", " + B[i][j].getImaginario() + ")" + " ");
-			}
-			System.out.println();
-		}
-	}
-	
-	
-	public void sumarMatrices(Complejo[][] A, Complejo[][] B) throws Exception {
-		if (A.length !=  B.length || A[0].length != B[0].length) {
-			throw new Exception("No puede sumar matrices que no tengan el mismo tamaño");
-		}
+		//prueba.transpuesta().imprimir();
+		System.out.println(prueba.norma());
+		prueba.imprimir();
 		
-		Complejo[][] resultado = new Complejo[A.length][A[0].length];
-		for (int i = 0; i < resultado.length; i++) {
-			for (int j = 0; j < resultado[i].length; j++) {
-				resultado[i][j] = sumar(A[i][j], B[i][j]);
-			}
-		}
+		System.out.println(new Complejo(8, -3).fase());
 		
-		System.out.println("Resultado");
-		for (int i = 0; i < resultado.length; i++) {
-			for (int j = 0; j < resultado[i].length; j++) {
-				System.out.print("("+ resultado[i][j].getReal() + ", " + resultado[i][j].getImaginario() + ")" + " ");
-			}
-			System.out.println();
-		}
+		//Matriz sumarMatrices = sumarMatrices(A, B);
+		
+		//A.imprimir();
+		//B.imprimir();
+		//sumarMatrices.imprimir();
+		//new Vector();*/
 		
 	}
+	
+
 	
 	/**
 	 * Suma dos numeros complejos
@@ -106,8 +64,7 @@ public class CalculadoraCompleja {
 	 * @return resultado que es la suma de c1 + c2
 	 */
 	public Complejo sumar(Complejo c1, Complejo c2) {
-		Complejo resultado = new Complejo(c1.getReal() + c2.getReal(), c1.getImaginario() + c2.getImaginario());
-		return resultado;
+		return c1.sumar(c2);
 	}
 	
 	/**
@@ -117,8 +74,7 @@ public class CalculadoraCompleja {
 	 * @return resultado que es la resta de c1 - c2
 	 */
 	public Complejo restar(Complejo c1, Complejo c2) {
-		Complejo resultado = new Complejo(c1.getReal() - c2.getReal(), c1.getImaginario() - c2.getImaginario());
-		return resultado;
+		return c1.restar(c2);
 	}
 	
 	/**
@@ -128,10 +84,7 @@ public class CalculadoraCompleja {
 	 * @return resultado que es la multiplicacion de c1 * c2
 	 */
 	public Complejo multiplicar(Complejo c1, Complejo c2) {
-		double real = (c1.getReal() * c2.getReal()) - (c1.getImaginario() * c2.getImaginario());
-		double imaginario = c1.getReal() * c2.getImaginario() + c1.getImaginario() * c2.getReal();
-		Complejo resultado = new Complejo(real, imaginario);
-		return resultado;
+		return c1.multiplicar(c2);
 	}
 	
 	
@@ -142,15 +95,7 @@ public class CalculadoraCompleja {
 	 * @return resultado que es la division de c1 / c2
 	 */
 	public Complejo division(Complejo c1, Complejo c2) {
-		try {
-			double real = (c1.getReal() * c2.getReal() + c1.getImaginario() * c2.getImaginario()) / (Math.pow(c2.getReal(), 2) + (Math.pow(c2.getImaginario(), 2)));
-			double imaginario = (c1.getImaginario() * c2.getReal() - c1.getReal() * c2.getImaginario()) / (Math.pow(c2.getReal(), 2) + (Math.pow(c2.getImaginario(), 2)));
-			Complejo resultado = new Complejo(real, imaginario);
-			return resultado;
-		} catch (Exception e) {
-			System.out.println("División por cero");
-			return null;
-		}
+		return c1.division(c2);
 	}
 	
 	/**
@@ -215,6 +160,172 @@ public class CalculadoraCompleja {
 	 */
 	public double fase(Complejo c1) {
 		return c1.fase(); 
+	}
+	
+	
+	/**
+	 * Suma dos vectores 
+	 * @param A Es el vector A 
+	 * @param B Es el vector B
+	 * @return Retorna un vector con la suma
+	 */
+	public Vector sumarVectores(Vector A, Vector B) {
+		try {
+			return A.sumarVectores(B);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * Calcula la inversa de un vector
+	 * @param A Es el vector
+	 * @return La inversa del vector A
+	 */
+	public Vector inversaVector(Vector A) {
+		return A.inversa();
+	}
+	
+	/**
+	 * Multiplica un vector por un escalar
+	 * @param A Es el vector
+	 * @param c Es el escalar 
+	 * @return Un vector con la multiplicacion escalar
+	 */
+	public Vector multiplicacionEscalarVector(Vector A, double c) {
+		return A.multiplicacionEscalar(c);
+	}
+	
+	/**
+	 * Suma matrices
+ 	 * @param A Es la matriz A
+	 * @param B Es la matriz B
+	 * @return Una matriz con la suma de A y B
+	 */
+	public Matriz sumarMatrices(Matriz A, Matriz B) {
+		try {
+			return A.sumarMatrices(B);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
+	/**
+	 * Saca la inversa de una matriz
+	 * @param A Es la matriz
+	 * @return Una matriz que es la inversa de A
+	 */
+	public Matriz inversaMatriz(Matriz A) {
+		return A.inversa();
+	}
+	
+	/**
+	 * Multiplica una matriz por un escalar
+	 * @param A Es la matriz
+	 * @param c Es el escalar 
+	 * @return Una matriz con la multiplicacion escalar 
+	 */
+	public Matriz multiplicacionEscalaMatriz(Matriz A, double c) {
+		return A.multiplicacionEscalar(c);
+	}
+
+	/**
+	 * Transpone la matriz deseada
+	 * @param A Es la matriz 
+	 * @return La nueva matriz que es la transpuesta de A
+	 */
+	public Matriz matrizTranspuesta(Matriz A) {
+		return A.transpuesta();
+	}
+	
+	/**
+	 * Conjuga la matriz deseada
+	 * @param A Es la matriz 
+	 * @return La conjugada de A
+	 */
+	public Matriz matrizConjugada(Matriz A) {
+		return A.conjugada();
+	}
+	
+	/**
+	 * Calcula la matriz adjunta
+	 * @param A Es la matriz procesar
+	 * @return La matriz adjaunta de A
+	 */
+	public Matriz matrizAdjunta(Matriz A) {
+		return A.adjunta();
+	}
+	
+	
+	/**
+	 * Calcula la accion de una matriz sobre un vector
+	 * @param A Es la matriz
+	 * @param B Es el vector
+	 * @return Retorna un vector que es la accion de la matriz sobre el vector
+	 */
+	public Vector accionMatrizVector(Matriz A, Vector B) {
+		return B.multiplicacion(A);
+	}
+	
+	
+	/**
+	 * Calcula la norma de la matriz deseada
+	 * @param A Es la matriz
+	 * @return Un double que es la norma de la matriz
+	 */
+	public double normaMatriz(Matriz A) {
+		return A.norma();
+	}
+	
+	/**
+	 * Calcula la distancia entre dos matrices
+	 * @param A Es la matriz A 
+	 * @param B Es la matriz B
+	 * @return Retorna un double con la distancia entre A y B
+	 */
+	public double distanciaEntreMatrices(Matriz A, Matriz B) {
+		try {
+			return A.distanciaEntreMatrices(B);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	/**
+	 * Dice si la matriz deseada es unitaria
+	 * @param A Es la matriz a revisar
+	 * @return true, false dependiendo de la condicion
+	 */
+	public boolean esMatrizUnitaria(Matriz A) {
+		return A.isUnitaria();
+	}
+	
+	/**
+	 * Dice si una matriz es hermitiana
+	 * @param A Es la matriz a revisar
+	 * @return true, false dependiendo de la condicion
+	 */
+	public boolean esMatrizHermitian(Matriz A) {
+		return A.isHermitian();
+	}
+	
+	
+	/**
+	 * Calcula el producto tensor entre dos matrices
+	 * @param A Es la matriz A
+	 * @param B Es la matriz B
+	 * @return Una matriz con el producto tensor entre A y B
+	 */
+	public Matriz productoTensor(Matriz A, Matriz B) {
+		return A.productoTensor(B);
 	}
 	
 	

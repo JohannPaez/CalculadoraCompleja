@@ -6,8 +6,49 @@ import org.junit.Test;
 public class PruebasCalculadoraCompleja {
 	
 	public static final double MAXERROR = 0.00000000000001;
+	private CalculadoraCompleja calculadora = new CalculadoraCompleja(true);
 	private Complejo c1 = new Complejo(2,3), c2 = new Complejo(5,-5), c3 = new Complejo(-4,7), c4 = new Complejo(-2,-2);
-	private CalculadoraCompleja calculadora = new CalculadoraCompleja(true);	
+	
+	private Vector v1 = new Vector(new Complejo[]{new Complejo(5,-5), new Complejo(5,-5), new Complejo(5,-5)});
+	private Vector v2 = new Vector(new Complejo[]{new Complejo(5,-5), new Complejo(5,-5), new Complejo(5,-5)});
+	private Vector v3 = new Vector(new Complejo[]{new Complejo(2, 1), new Complejo(1,-2)});
+	
+	private Matriz hermitian = new Matriz(new Complejo[][]{{new Complejo(5,0),new Complejo(4,5),new Complejo(6,-16)},
+										   				   {new Complejo(4,-5),new Complejo(13,0),new Complejo(7,0)},
+										   				   {new Complejo(6,16),new Complejo(7,0),new Complejo(-2.1,0)}});
+	
+	private Matriz hermitianUnitaria = new Matriz(new Complejo[][] {{new Complejo(0,0),new Complejo(1,0)}, 
+																	{new Complejo(1,0),new Complejo(0,0)}});
+	
+	private Matriz unitaria = new Matriz(new Complejo[][] {{new Complejo(0, 0),new Complejo(1,0)}, 
+														   {new Complejo(1,0),new Complejo(0,0)}});
+	
+	private Matriz m1 = new Matriz(new Complejo[][] {{new Complejo(1,1),new Complejo(1,1)}, 
+													 {new Complejo(1,1),new Complejo(1,1)}});
+	
+	private Matriz norma = new Matriz(new Complejo[][]{{new Complejo(6.5, 2.7),new Complejo(3.1, -3.8)}});
+	
+	private Matriz m2 = new Matriz(new Complejo[][] {{new Complejo(1,1),new Complejo(0,0)}, 
+													 {new Complejo(1,0),new Complejo(0,1)}});
+	
+	private Matriz m3 = new Matriz(new Complejo[][] {{new Complejo(-1,2),new Complejo(-2,-2),new Complejo(0,2)}, 
+													 {new Complejo(2,3),new Complejo(3,1),new Complejo(2,2)},
+													 {new Complejo(-2,1),new Complejo(1,-1),new Complejo(2,1)}});
+	
+	private Matriz matrizTensor = new Matriz(new Complejo[][] {{new Complejo(-3,1),new Complejo(0,-4),new Complejo(-2,2), 
+															   new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+															   {new Complejo(-1,5),new Complejo(2,4),new Complejo(0,4),
+														       new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+														       {new Complejo(-3,-1),new Complejo(2,0),new Complejo(1,3),
+														       new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+	       
+														       {new Complejo(-1,2),new Complejo(-2,-2),new Complejo(0,2), 
+															   new Complejo(-2,-1),new Complejo(2,-2),new Complejo(-2,0)},
+															   {new Complejo(2,3),new Complejo(3,1),new Complejo(2,2),
+														       new Complejo(-3,2),new Complejo(-1,3),new Complejo(-2,2)},
+														       {new Complejo(-2,1),new Complejo(1,-1),new Complejo(2,1),
+														       new Complejo(-1,-2),new Complejo(1,1),new Complejo(-1,2)}});
+	
 	
 	@Test
 	public void deberiaSumarComplejos() {
@@ -110,6 +151,132 @@ public class PruebasCalculadoraCompleja {
 		assertEquals(fase, 0.7853981633974483, MAXERROR);
 	}
 	
+	
+	@Test 
+	public void deberiaSumarVectores() { 
+		Vector v = new Vector(new Complejo[]{new Complejo(10,-10), new Complejo(10,-10), new Complejo(10,-10)});
+		try {
+			assertTrue(v.equals(v1.sumarVectores(v2)));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@Test 
+	public void inversaVectores() { 
+		Vector v = new Vector(new Complejo[]{new Complejo(-5,5), new Complejo(-5,5), new Complejo(-5,5)});
+		assertTrue(v.equals(v1.inversa()));
+	}
+	
+	
+	@Test 
+	public void multiplicacionEscalarVectores() { 
+		Vector v = new Vector(new Complejo[]{new Complejo(-10,10), new Complejo(-10,10), new Complejo(-10,10)});
+		assertTrue(v.equals(v1.inversa().multiplicacionEscalar(2)));
+	}
+
+	@Test 
+	public void deberiaSumarMatrices() { 
+		Matriz m = new Matriz(new Complejo[][] {{new Complejo(0,0),new Complejo(2,0)}, 
+												{new Complejo(2,0),new Complejo(0,0)}});
+		try {
+			assertTrue(m.equals(hermitianUnitaria.sumarMatrices(hermitianUnitaria)));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test 
+	public void inversaMatrices() { 
+		Matriz m = new Matriz(new Complejo[][] {{new Complejo(0,0),new Complejo(-1,0)}, 
+												{new Complejo(-1,0),new Complejo(0,0)}});
+		assertTrue(m.equals(hermitianUnitaria.inversa()));
+		
+	}
+	
+	@Test 
+	public void multiplicacionEscalarMatrices() { 
+		Matriz m = new Matriz(new Complejo[][] {{new Complejo(0,0),new Complejo(5,0)}, 
+												{new Complejo(5,0),new Complejo(0,0)}});
+		assertTrue(m.equals(hermitianUnitaria.multiplicacionEscalar(5)));
+		
+	}
+	
+	
+	@Test 
+	public void matrizTranspuesta() { 
+		Matriz m = new Matriz(new Complejo[][] {{new Complejo(0,0),new Complejo(5,0)}, 
+												{new Complejo(5,0),new Complejo(0,0)}});
+		assertTrue(m.equals(hermitianUnitaria.multiplicacionEscalar(5).inversa()));
+		
+	}
+	
+	@Test 
+	public void matrizConjugada() { 
+		Matriz m = new Matriz(new Complejo[][] {{new Complejo(1,-1),new Complejo(1,-1)}, 
+												{new Complejo(1,-1),new Complejo(1,-1)}});
+		assertTrue(m.equals(m1.conjugada()));
+		
+	}
+	
+	@Test 
+	public void matrizAdjunta() { 
+		Matriz m = new Matriz(new Complejo[][] {{new Complejo(1,-1),new Complejo(1,-1)}, 
+												{new Complejo(1,-1),new Complejo(1,-1)}});
+		assertTrue(m.equals(m1.adjunta()));
+		
+	}
+	
+	@Test 
+	public void accionMatrizVector() { 
+		Vector v = new Vector(new Complejo[]{new Complejo(4, 2), new Complejo(4, 2)});		
+		assertTrue(v.equals(v3.multiplicacion(m1)));
+		
+	}
+	
+	
+	@Test 
+	public void normaMatrices() { 
+		double v = 8.578461400507669;
+		assertEquals(v, norma.norma(), MAXERROR);
+		
+	}
+	
+	
+	@Test 
+	public void distanciaEntreMatrices() { 
+		double v = 12;
+		Vector v1 = new Vector(new Complejo[] {new Complejo(2,7), new Complejo(4,-1), new Complejo(2,-4)});
+		Vector v2 = new Vector(new Complejo[] {new Complejo(7,8), new Complejo(2,-8), new Complejo(1,4)});
+		Matriz A = new Matriz(new Complejo[][]{v1.getVector()});
+		Matriz B = new Matriz(new Complejo[][]{v2.getVector()});
+		try {
+			assertEquals(A.distanciaEntreMatrices(B), v, MAXERROR);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void deberiaSerUnitaria() {
+		assertTrue(unitaria.isUnitaria());
+	}
+	
+	@Test
+	public void deberiaSerHermitian() {
+		assertTrue(hermitian.isHermitian());
+	}
+	
+	
+	@Test
+	public void productoTensor() {
+		assertTrue(m2.productoTensor(m3).equals(matrizTensor));
+	}
 	
 }
 

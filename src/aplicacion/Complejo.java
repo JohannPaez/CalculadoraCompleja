@@ -11,6 +11,8 @@ public class Complejo {
 	 * @param imaginario Es la parte imaginaria del número
 	 */
 	public Complejo(double real, double imaginario) {
+		if (real == 0) real = 0;
+		if (imaginario == 0) imaginario = 0;
 		this.real = real;
 		this.imaginario = imaginario;
 	}
@@ -44,7 +46,9 @@ public class Complejo {
 	 * @return conjugado
 	 */
 	public Complejo conjugado() {
-		return new Complejo(real, -imaginario);
+		double aux = -imaginario;
+		if (imaginario == 0) aux = 0;
+		return new Complejo(real, aux);
 	}
 	
 	/**
@@ -137,10 +141,63 @@ public class Complejo {
 		return polar;
 	}
 	
+	
+	/**
+	 * Suma el número complejo con otro
+	 * @param c1 Es el otro número complejo
+	 * @return resultado De la suma de los numeros complejos 
+	 */
+	public Complejo sumar(Complejo c1) {
+		Complejo resultado = new Complejo(this.real + c1.getReal(), this.imaginario + c1.getImaginario());
+		return resultado;
+	}
+	
+	/**
+	 * Resta el número complejo con otro
+	 * @param c1 Es el otro número complejo
+	 * @return resultado De la resta de los numeros complejos 
+	 */
+	public Complejo restar(Complejo c1) {
+		Complejo resultado = new Complejo(this.real - c1.getReal(), this.imaginario - c1.getImaginario());
+		return resultado;
+	}
+	
+	/**
+	 * Multiplica dos numeros complejos
+	 * @param c2 Es el segundo numero
+	 * @return resultado que es la multiplicacion de c1 * c2 donde c1 es this
+	 */
+	public Complejo multiplicar(Complejo c2) {
+		double real = (this.real * c2.getReal()) - (this.imaginario * c2.getImaginario());
+		double imaginario = this.real * c2.getImaginario() + this.imaginario * c2.getReal();
+		Complejo resultado = new Complejo(real, imaginario);
+		return resultado;
+	}
+	
+	
+	/**
+	 * Divide dos numeros complejos 
+	 * @param c2 Es el segundo numero
+	 * @return resultado que es la division de c1 / c2 donde c1 es this 
+	 */
+	public Complejo division(Complejo c2) {
+		try {
+			double real = (this.real * c2.getReal() + this.imaginario * c2.getImaginario()) / (Math.pow(c2.getReal(), 2) + (Math.pow(c2.getImaginario(), 2)));
+			double imaginario = (this.imaginario * c2.getReal() - this.real * c2.getImaginario()) / (Math.pow(c2.getReal(), 2) + (Math.pow(c2.getImaginario(), 2)));
+			Complejo resultado = new Complejo(real, imaginario);
+			return resultado;
+		} catch (Exception e) {
+			System.out.println("División por cero");
+			return null;
+		}
+	}
+	
+	
+	
 	/**
 	 * Verifica que el hascode de ambos objetos sea igual
 	 * @param obj
-	 * @return true,false depndiendo de la condicion
+	 * @return true, false depndiendo de la condicion
 	 */
 	@Override
 	public boolean equals(Object obj) {
