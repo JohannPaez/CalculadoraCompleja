@@ -26,7 +26,16 @@
 - Matrices Complejas
      - Sumar matrices
      - Inversa
-     - Producto 
+     - Producto escalar
+     - Transpuesta
+     - Conjugada
+     - Adjunta
+     - Accion
+     - Norma
+     - Distancia entre matrices
+     - Revisar si es unitaria
+     - Revisar si es hermitian
+     - Producto tensor
 
 ## Intalación 
 Si quieres saber como funciona el programa, tienes que seguir los siguientes pasos:
