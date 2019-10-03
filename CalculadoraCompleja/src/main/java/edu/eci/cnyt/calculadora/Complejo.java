@@ -192,7 +192,9 @@ public class Complejo {
 		}
 	}
 	
-	
+	public void imprimir() {
+		System.out.print("("+ real + ", " + imaginario + ")" + " ");
+	}
 	
 	/**
 	 * Verifica que el hascode de ambos objetos sea igual

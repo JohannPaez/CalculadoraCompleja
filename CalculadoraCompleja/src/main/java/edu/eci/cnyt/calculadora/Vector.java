@@ -30,6 +30,26 @@ public class Vector {
 		}
 	}
 	
+	public Vector(double[][] A) {
+		vector = new Complejo[A.length];
+		for (int i = 0; i < vector.length; i++) {
+			vector[i] = new Complejo(A[i][0], A[i][1]);
+		}
+	}
+	
+	
+	public Complejo multiplicacion(Vector B) {
+		Complejo resultado = new Complejo(0, 0);
+		
+		for (int i = 0; i < vector.length; i++) {
+			resultado = resultado.sumar(vector[i].conjugado().multiplicar(B.getVector()[i]));
+		}
+		
+		
+		
+		return resultado;
+	}
+	
 	
 	/**
 	 * Suma dos vectores y los retorna
