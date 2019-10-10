@@ -2,6 +2,8 @@ package edu.eci.cnyt.calculadora;
 
 import java.util.*;
 
+
+
 public class CalculadoraCompleja {
 	/**
 	 * Constructor de la calculadora que muestra solo algunos datos deseados
@@ -58,6 +60,30 @@ public class CalculadoraCompleja {
 		Vector B = new Vector(Blista);
 		Complejo C = A.multiplicacion(B);
 		C.imprimir();
+		Complejo[][] matrizCompleja = new Complejo[][] 
+				{{new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(1,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)},
+				 {new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0),new Complejo(0,0)}};
+
+		Matriz pruebaCanicas =  new Matriz (matrizCompleja);
+		
+		Complejo[] vectorAux = new Complejo[]
+				 {new Complejo(10,0),new Complejo(4,0),new Complejo(1,0),new Complejo(7,0),new Complejo(2,0),new Complejo(2,0),new Complejo(11,0),new Complejo(0,0),new Complejo(3,0),new Complejo(1,0),new Complejo(0,0),new Complejo(5,0),new Complejo(2,0)};
+		
+		Vector vectorPrueba = new Vector(vectorAux);
+		
+		System.out.println();
+		pruebaCanicas.experimentoCanicas(25, pruebaCanicas, vectorPrueba).imprimir();
 		
 	}
 	

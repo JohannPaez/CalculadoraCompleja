@@ -294,6 +294,14 @@ public class Matriz {
 		System.out.println();
 	}
 	
+	
+	public Vector experimentoCanicas(int clicks, Matriz m, Vector v) {
+		for (int i = 0; i < clicks; i++) {
+			v = v.multiplicacion(m);
+		}
+		return v;
+	}
+	
 	/**
 	 * Retorna la matriz en lista
 	 * @return matriz
