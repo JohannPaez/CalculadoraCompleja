@@ -95,7 +95,7 @@ public class CalculadoraCompleja {
 	 * @param c2 Es el segundo numero
 	 * @return resultado que es la suma de c1 + c2
 	 */
-	public Complejo sumar(Complejo c1, Complejo c2) {
+	public static Complejo sumar(Complejo c1, Complejo c2) {
 		return c1.sumar(c2);
 	}
 	
@@ -115,7 +115,7 @@ public class CalculadoraCompleja {
 	 * @param c2 Es el segundo numero
 	 * @return resultado que es la multiplicacion de c1 * c2
 	 */
-	public Complejo multiplicar(Complejo c1, Complejo c2) {
+	public static Complejo multiplicar(Complejo c1, Complejo c2) {
 		return c1.multiplicar(c2);
 	}
 	
