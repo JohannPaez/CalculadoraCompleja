@@ -96,8 +96,11 @@ Habrá el proyecto en el editor de su preferencia:
 
 ## Ejemplos de uso con maven
 Para ello nos dirigimos a la carpeta principal del proyecto, dependiendo de lo que queramos hacer.
+
 Si queremos compilar el proyecto y ver que no tiene fallos, utilizamos el comando **mvn package**.
+
 Si queremos ejecutar las pruebas y ver que todo está perfecto, utilizamos el comando **mvn test**.
+
 **NOTA:** El comando **mvn package** compilar y ejecuta las pruebas al mismo tiempo.
 
 ## Construido 
