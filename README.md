@@ -54,6 +54,22 @@ Para poder ejecutar sus pruebas siga los siguientes pasos:
 1. Cambie los valores c1, c2, c3 y c4 por los valores deseados.
 2. Elija la prueba que desea y cambie el resultado por el esperado.
 3. Corra las pruebas y verifique que el resultado esperado es igual al valor dado por el programa.
+## Ejemplo de prueba de simulacion de canicas
+```
+	Matriz pruebaCanicas = new Matriz(matrizCompleja);
+
+	Complejo[] vectorAux = new Complejo[] { new Complejo(10, 0), new Complejo(4, 0), new Complejo(1, 0),
+			new Complejo(7, 0), new Complejo(2, 0), new Complejo(2, 0), new Complejo(11, 0), new Complejo(0, 0),
+			new Complejo(3, 0), new Complejo(1, 0), new Complejo(0, 0), new Complejo(5, 0), new Complejo(2, 0) };
+
+	Vector vectorPrueba = new Vector(vectorAux);
+	double[][] lista = new double[][] { { 0, 0 }, { 0, 0 }, { 1, 0 }, { 7, 0 }, { 2, 0 }, { 21, 0 }, { 5, 0 },
+			{ 0, 0 }, { 4, 0 }, { 0, 0 }, { 3, 0 }, { 5, 0 }, { 0, 0 } };
+	Vector res = pruebaCanicas.experimentoCanicas(25, pruebaCanicas, vectorPrueba);
+	Vector esperado = new Vector(lista);
+	assertTrue(res.equals(esperado));
+
+```
 
 ## Ejemplos de uso
 Habrá el proyecto en el editor de su preferencia:
