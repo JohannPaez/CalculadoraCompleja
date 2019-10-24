@@ -101,7 +101,7 @@ Si queremos compilar el proyecto y ver que no tiene fallos, utilizamos el comand
 
 Si queremos ejecutar las pruebas y ver que todo está perfecto, utilizamos el comando **mvn test**.
 
-**NOTA:** El comando **mvn package** compilar y ejecuta las pruebas al mismo tiempo.
+**NOTA:** El comando **mvn package** compila y ejecuta las pruebas al mismo tiempo.
 
 ## Construido 
 [Eclipse](https://www.eclipse.org/) Editor de JAVA donde se puede compilar el proyecto. 
