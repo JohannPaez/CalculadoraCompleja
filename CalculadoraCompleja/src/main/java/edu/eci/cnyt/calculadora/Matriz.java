@@ -1,6 +1,10 @@
 package edu.eci.cnyt.calculadora;
 
 
+/**
+ * Autor Johann Sebastian Paez Campos
+ * 2153014 
+*/
 
 public class Matriz {
 	private Complejo matriz[][];
@@ -279,6 +283,11 @@ public class Matriz {
 		return new Matriz(res);
 	}
 	
+	
+	/**
+	 * Imprime la matriz deseada separada en un formato especial
+	 * @param res
+	 */
 	public void imprimirRes(Complejo[][] res) {
 		System.out.println();
 		for (int i = 0; i < res.length; i++) {
@@ -294,7 +303,13 @@ public class Matriz {
 		System.out.println();
 	}
 	
-	
+	/**
+	 * Calcula el experimento de las canicas 
+	 * @param clicks Es el número de clicks
+	 * @param m Es la matriz del sistema
+	 * @param v Es el vector estado (Estado inicial o estado0)
+	 * @return Vector con el sistema ya calculado en el número de clicks dado
+	 */
 	public Vector experimentoCanicas(int clicks, Matriz m, Vector v) {
 		for (int i = 0; i < clicks; i++) {
 			v = v.multiplicacion(m);

@@ -2,7 +2,10 @@ package edu.eci.cnyt.calculadora;
 
 import java.util.*;
 
-
+/**
+ * Autor Johann Sebastian Paez Campos
+ * 2153014 
+*/
 
 public class CalculadoraCompleja {
 	/**

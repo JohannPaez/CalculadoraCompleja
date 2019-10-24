@@ -1,5 +1,11 @@
 package edu.eci.cnyt.calculadora;
 
+
+/**
+ * Autor Johann Sebastian Paez Campos
+ * 2153014 
+*/
+
 public class Vector {
 	private Complejo vector[];
 	

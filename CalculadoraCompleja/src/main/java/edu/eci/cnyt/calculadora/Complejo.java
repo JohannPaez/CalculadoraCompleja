@@ -1,5 +1,10 @@
 package edu.eci.cnyt.calculadora;
 
+
+/**
+ * Autor Johann Sebastian Paez Campos
+ * 2153014 
+*/
 public class Complejo {
 	private double real;
 	private double imaginario;

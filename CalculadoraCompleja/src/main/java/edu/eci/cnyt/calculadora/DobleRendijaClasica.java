@@ -2,16 +2,29 @@
 package edu.eci.cnyt.calculadora;
 
 
+/**
+ * Autor Johann Sebastian Paez Campos
+ * 2153014 
+*/
+
 public class DobleRendijaClasica {
     private double[][] matriz;
     private double[] estado0;
     private int blancos,rendijas;
-    public DobleRendijaClasica(int rendijas, int blancos, int[][] ady) { 
+    
+    
+    /**
+     * Constructor de la clase DobleRendijaClasica
+     * @param rendijas Es el númeor de rendijas 
+     * @param blancos Es el número de blancos
+     * @param adyacencia Es la lista de adyacencia
+     */
+    public DobleRendijaClasica(int rendijas, int blancos, int[][] adyacencia) { 
         this.rendijas = rendijas;
         this.blancos = blancos;
-        estado0 = hallarEstadoInicial();
-        matriz = new double[ady.length][ady.length];
-        for(int i = 0; i < ady.length; i++) for(int j: ady[i]) {
+        estado0 = calcularEstadoInicial();
+        matriz = new double[adyacencia.length][adyacencia.length];
+        for(int i = 0; i < adyacencia.length; i++) for(int j: adyacencia[i]) {
             if(j>=rendijas && i == 0) matriz[j-1][i] = (double)Math.round((1d/rendijas) * 10d) / 10d ;
             else if(i>0 && i<=rendijas) matriz[j-1][i] = (double)Math.round((1d/3) * 10d) / 10d;
             else matriz[j-1][i] = 1;
@@ -20,6 +33,10 @@ public class DobleRendijaClasica {
         
     }
     
+    /**
+     * Imprime la matriz 
+     * @param matriz
+     */
     public static void imprimirMatriz(double [][] matriz){
         System.out.print("\n ");
         for (int i = 0; i < matriz.length; i++) System.out.print("   "+(i));
@@ -29,6 +46,11 @@ public class DobleRendijaClasica {
             System.out.print("|");
         }
     }
+    
+    /**
+     * Imprime el estado actual o el estado0 por defecto
+     * @param estado0
+     */
     public static void imprimirEstado(double[] estado0){
         System.out.print("\n  ");
         for(int i = 0; i< estado0.length; i++) {
@@ -37,6 +59,12 @@ public class DobleRendijaClasica {
             System.out.print("|");
         }
     }
+    
+    /**
+     * Da un click en la simulacion
+     * @param n Es el número de clicks
+     * @return Una lista que será el número estado
+     */
     public double[] click(int n){
         double[] y = estado0;
         for(int i=0; i<n; i++){
@@ -44,12 +72,28 @@ public class DobleRendijaClasica {
         }
         return y;
     }
+    
+    /**
+     * Retorna el estado
+     * @return estado0
+     */
     public double[] getEstado(){
         return estado0;
     }
+    
+    /**
+     * Retorna la matriz
+     * @return matriz
+     */
     public double[][] getMatriz(){
         return matriz;
     }
+    
+    /**
+     * multiplica el vector con la matriz
+     * @param y Es el vector "Estado"
+     * @return aux que es el nuevo estado
+     */
     private double[] multiplicarVector(double[] y){
         double[] aux =  new double[y.length];
         for (int i = 0; i < matriz.length; i++){
@@ -61,8 +105,14 @@ public class DobleRendijaClasica {
         }
         return aux;
     }
-    private double[] hallarEstadoInicial(){
-        double[] aux = new double[rendijas+blancos+1];
+    
+    /**
+     * Calcula el estado inicial del sistema
+     * @return
+     */
+    private double[] calcularEstadoInicial(){
+    	int l = this.blancos;
+        double[] aux = new double[rendijas+l+1];
         aux[0] = 1;
         return aux;
     }
