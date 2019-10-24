@@ -49,6 +49,19 @@ Si quieres saber como funciona el programa, tienes que seguir los siguientes pas
 3. Corra el programa y verifique que no tiene errores.
 4. Ingrese los parámetros deseados que desea ver para visualizar las funcionalidades del sistema.
 
+## Instalación (Proyecto Maven)
+Para tener una mejor experiencia con el programa, es recomendable tener instalado maven en el sistema operativo,
+de esta forma se puede visualizar de una mejor manera las pruebas y ejecutarlas desde consola.
+Para instalar maven seguimos los siguientes pasos:
+1. En eclipse vamos al menu que dice help.
+2. Ahí le damos a install new software.
+3. Nos abrirá una nueva pestaña, allí le damos donde aparece "add".
+4. En "Name" escribimos lo siguiente: M2Eclipse
+5. En "Location" escribimos la siguiente dirección: http://download.eclipse.org/technology/m2e/releases
+6. Le damos Add, señalamos los plugins que aparecieron.
+7. Aceptamos los terminos y condiciones, y se instalará automáticamente.
+8. Reiniciamos eclipse y ya está instalado maven en eclipse.
+
 ## Pruebas
 Para poder ejecutar sus pruebas siga los siguientes pasos:
 1. Cambie los valores c1, c2, c3 y c4 por los valores deseados.
@@ -80,6 +93,12 @@ Habrá el proyecto en el editor de su preferencia:
 5. Complejo n2 = new Complejo(3,4);
 6. Ejecute las operaciones deseadas
 7. Complejo resultado = sumar(n, n2);
+
+## Ejemplos de uso con maven
+Para ello nos dirigimos a la carpeta principal del proyecto, dependiendo de lo que queramos hacer.
+Si queremos compilar el proyecto y ver que no tiene fallos, utilizamos el comando **mvn package**.
+Si queremos ejecutar las pruebas y ver que todo está perfecto, utilizamos el comando **mvn test**.
+**NOTA:** El comando **mvn package** compilar y ejecuta las pruebas al mismo tiempo.
 
 ## Construido 
 [Eclipse](https://www.eclipse.org/) Editor de JAVA donde se puede compilar el proyecto. 
