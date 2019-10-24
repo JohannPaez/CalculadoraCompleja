@@ -38,9 +38,9 @@
      - Producto tensor
 	 
  ## Simulación de lo clásico a lo cuántico
-    - Los experimentos de la canicas con coeficiente booleanos
-    - Experimentos de las múltiples rendijas clásico probabilístico, con más de dos rendijas.
-    - Experimento de las múltiples rendijas cuántico.
+   - Los experimentos de la canicas con coeficiente booleanos
+   - Experimentos de las múltiples rendijas clásico probabilístico, con más de dos rendijas.
+   - Experimento de las múltiples rendijas cuántico.
 
 ## Intalación 
 Si quieres saber como funciona el programa, tienes que seguir los siguientes pasos:
