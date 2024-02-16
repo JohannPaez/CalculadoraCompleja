@@ -1,6 +1,6 @@
 # Numeros-Complejos
  
- Este proyecto is una calculadora de numeros complejos, y sus operaciones básicas.
+ Este proyecto is una calculadora de numeros complejos, y sus operaciones básicas. 
  
  ## Prerequisitos
  
